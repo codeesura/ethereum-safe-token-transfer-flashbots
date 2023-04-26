@@ -1,15 +1,17 @@
 const { ethers } = require("ethers");
 const { FlashbotsBundleProvider, FlashbotsBundleResolution } = require("@flashbots/ethers-provider-bundle");
+require('dotenv').config();
 
 const addresses = {
   'CROToken': '0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b',
 };
 
 const CHAIN_ID = 1;
-const provider = new ethers.providers.JsonRpcProvider('https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY');
+const provider = new ethers.providers.JsonRpcProvider(`https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`);
 
-const safeWalletkey = "PRIVATE_KEY";
-const hacklenenkey = "HACK_PRIVATE_KEY";
+const safeWalletkey = process.env.PRIVATE_KEY_SAFE_WALLET;
+const hacklenenkey = process.env.PRIVATE_KEY_HACKLENEN;
+
 const safeWallet = new ethers.Wallet(safeWalletkey, provider);
 const hacklenen = new ethers.Wallet(hacklenenkey, provider);
 
