@@ -49,7 +49,7 @@ npm install
 1. To start the token transfer, run the following command:
 
 ```bash
-node index.js
+node app.js
 ```
 
 2. The script will listen for new blocks and attempt to include the token transfer in the upcoming block. Once the transaction is included, you'll see a confirmation message in the console.
